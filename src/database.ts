@@ -1,11 +1,19 @@
 import * as builder from 'knex'
+import { Knex } from 'knex'
+import { env } from './env'
 
-const knex = builder.default({
+const config: Knex.Config = {
     client: 'sqlite',
     connection: {
-        filename: './tmp/app.db'
+        filename: env.DATABASE_URL!,
     },
     useNullAsDefault: true,
-})
+    migrations: {
+        extension: 'ts',
+        directory: env.DATABASE_MIGRATIONS_PATH!,
+    }
+}
 
-export { knex }
+const knex = builder.default(config)
+
+export { knex, config }

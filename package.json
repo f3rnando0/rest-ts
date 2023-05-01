@@ -1,12 +1,16 @@
 {
   "dependencies": {
+    "@fastify/cookie": "^8.3.0",
     "@rocketseat/eslint-config": "^1.2.0",
+    "dotenv": "^16.0.3",
     "eslint": "^8.39.0",
     "fastify": "^4.17.0",
     "knex": "^2.4.2",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/node": "^18.16.3",
     "tsx": "^3.12.7"
   },
   "name": "rest-nodejs",
@@ -14,6 +18,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
+    "knex": "node --no-warnings --loader tsx ./node_modules/knex/bin/cli.js --knexfile ./knexfile.ts",
     "lint": "eslint src --ext .ts --fix"
   },
   "keywords": [],
