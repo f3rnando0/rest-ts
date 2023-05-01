@@ -3,3 +3,4 @@ database/app.db
 package-lock.json
 .env
 README.md
+.env.test
